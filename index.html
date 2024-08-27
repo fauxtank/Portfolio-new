@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fauxtank's Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0c0c0c;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: url('317218.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 4em;
+            color: #fff;
+            text-shadow: 2px 2px 8px #000;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+        section {
+            padding: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .about, .works, .youtube {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .about.visible, .works.visible, .youtube.visible {
+            opacity: 1;
+        }
+        .work-item {
+            margin: 20px 0;
+        }
+        .work-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const options = {
+                threshold: 0.5
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</head>
+<body>
+
+<nav>
+    <a href="#about">About Me</a>
+    <a href="#works">My Works</a>
+    <a href="#youtube">YouTube Channel</a>
+</nav>
+
+<header>
+    <h1>Fauxtank's Website</h1>
+</header>
+
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>My name is G. Shiva Kumar, and I am a student currently studying in 12th Humanities. I like playing games, watching anime, listening to music, playing chess, playing guitar, etc.</p>
+    <p>PC Specs: HP Omen 16 with Intel i7 11800H, RTX 3050 4GB VRAM, 16GB RAM, and 1TB SSD.</p>
+</section>
+
+<section id="works" class="works">
+    <h2>My Works</h2>
+    <div class="work-item">
+        <centre><h3>Csgo montage</h3>
+        <video width="320" height="240" controls>
+            <source src="CS_GO montage _DDD.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video></centre>
+    </div>
+    <div class="work-item">
+        <centre><h3>Valo test edit</h3>
+        <video width="320" height="240" controls>
+            <source src="0327.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video></centre>
+    </div>
+    <div class="work-item">
+        <centre><h3>Edited pic 1</h3>
+        <img src="sunset cycle (1 of 1).jpg" alt="Edited Image 1"> 
+    </centre>
+    </div>
+    <div class="work-item">
+        <centre><h3>Edited pic 2</h3>
+        <img src="oj (1 of 1).jpg" alt="Edited Image 2"></centre>
+    </div>
+</section>
+
+<section id="youtube" class="youtube">
+    <h2>My YouTube Channel</h2>
+    <p>Check out my YouTube channel for more content!</p>
+    <a href="https://www.youtube.com/channel/UCbKmwwpIO3yS4FglMpNDblg" target="_blank">Go to YouTube Channel</a>
+</section>
+
+</body>
+</html>
